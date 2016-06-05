@@ -15,12 +15,12 @@ var express = require('express'),
     multer  = require('multer'),
     storage = multer.diskStorage({
     destination: function (req, file, next) {
-                next(null, './uploads')
-            },
-            filename: function (req, file, next) {
-                next(null, 'avatar-' + Date.now() + ".jpg")
-            }
-        }),
+          next(null, './uploads')
+       },
+       filename: function (req, file, next) {
+          next(null, 'avatar-' + Date.now() + ".jpg")
+       }
+    }),
     upload = multer({ storage: storage }),
     fUpload = upload.fields([{name: 'photo', maxCount: 1}]),
     app = express();
