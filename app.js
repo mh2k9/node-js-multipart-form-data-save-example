@@ -6,11 +6,11 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     multer  = require('multer'),
     storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-            cb(null, './uploads')
+    destination: function (req, file, next) {
+            next(null, './uploads')
         },
-        filename: function (req, file, cb) {
-            cb(null, file.fieldname + '-' + Date.now() + ".jpg")
+        filename: function (req, file, next) {
+            next(null, 'avatar-' + Date.now() + ".jpg")
         }
     }),
     upload = multer({ storage: storage }),
