@@ -29,7 +29,7 @@ var express = require('express'),
  * Upload routing.
  * Update form data. Upload file using multer.
  */
-app.post('/upload', function (req, res, next) {
+app.post('/upload', fUpload, function (req, res, next) {
     // Field data
     console.log(req.body);
     // File details

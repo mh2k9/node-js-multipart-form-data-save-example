@@ -6,7 +6,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     multer  = require('multer'),
     storage = multer.diskStorage({
-    destination: function (req, file, next) {
+        destination: function (req, file, next) {
             next(null, './uploads')
         },
         filename: function (req, file, next) {
@@ -40,7 +40,7 @@ app.get("/", function(req, res){
  * Upload routing.
  * Update form data. Upload file using multer.
  */
-app.post('/upload', function (req, res, next) {
+app.post('/upload', fUpload, function (req, res, next) {
     // Field data
     console.log(req.body);
     // File details
