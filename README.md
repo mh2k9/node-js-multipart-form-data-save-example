@@ -37,7 +37,7 @@ app.post('/upload', fUpload, function (req, res, next) {
     // File details
     console.log(req.files);
 
-    // Upload File
+    // Error handling
     fUpload(req, res, function (err) {
         if (err) {
             console.log("An error occurred when uploading");
